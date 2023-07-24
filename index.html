@@ -7,12 +7,6 @@
 <body class="bg-dark text-white">
     <div class="container mt-5">
         <h1 class="mb-4">ランダム文字列出力</h1>
-        <ul id="stringList" class="list-group">
-            <li class="list-group-item">りんご</li>
-            <li class="list-group-item">バナナ</li>
-            <li class="list-group-item">オレンジ</li>
-            <li class="list-group-item">グレープ</li>
-        </ul>
         <button id="randomButton" class="btn btn-light mt-3">ランダム出力</button>
         <div id="output" class="mt-3"></div>
     </div>
@@ -20,11 +14,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+            var strings = ["りんご", "バナナ", "オレンジ", "グレープ"];
+
             $("#randomButton").click(function() {
-                var listItems = $("#stringList li");
-                var randomIndex = Math.floor(Math.random() * listItems.length);
-                var randomString = listItems.eq(randomIndex).text();
-                $("#output").text("ランダム文字列：" + randomString);
+                if (strings.length === 0) {
+                    $("#output").text("文字列リストが空です。");
+                } else {
+                    var randomIndex = Math.floor(Math.random() * strings.length);
+                    var randomString = strings[randomIndex];
+                    $("#output").text("ランダム文字列：" + randomString);
+                }
             });
         });
     </script>
