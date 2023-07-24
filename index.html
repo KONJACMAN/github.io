@@ -34,14 +34,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var strings = ["りんご", "バナナ", "オレンジ", "グレープ"];
+            var Touzai_Line = ["二十四軒駅","西28丁目駅","円山公園駅","西18丁目駅","菊水駅","東札幌駅",
+                               "南郷7丁目駅","南郷13丁目駅","南郷18丁目駅","大谷地駅","ひばりが丘駅"];
 
             $("#randomButton").click(function() {
-                if (strings.length === 0) {
+                if (Touzai_Line.length === 0) {
                     $("#output").text("文字列リストが空です。");
                 } else {
-                    var randomIndex = Math.floor(Math.random() * strings.length);
-                    var randomString = strings[randomIndex];
+                    var randomIndex = Math.floor(Math.random() * Touzai_Line.length);
+                    var randomString = Touzai_Line[randomIndex];
                     $("#output").text(randomString);
                 }
             });
