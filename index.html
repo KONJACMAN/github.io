@@ -43,17 +43,24 @@
             var Touhou_Line  = ["栄町駅","新道東駅","元町駅","環状通東駅","東区役所前駅","北13条東駅","さっぽろ駅","大通駅","豊水すすきの駅",
                                "学園前駅","豊平公園駅","美園駅","月寒中央駅","福住駅"];
 
-            var line_n = 2;
-
-
             $("#randomButton").click(function() {
-                if (Touzai_Line.length === 0) {
-                    $("#output").text("文字列リストが空です。");
-                } else {
-                    var randomIndex = Math.floor(Math.random() * Touzai_Line.length);
-                    var randomString = Touzai_Line[randomIndex];
-                    $("#output").text(randomString);
+                var randomArrayIndex = Math.floor(Math.random() * 3);
+                var randomValue;
+
+                switch (randomArrayIndex) {
+                    case 0:
+                        randomValue = Touzai_Line[Math.floor(Math.random() * Touzai_Line.length)];
+                        break;
+                    case 1:
+                        randomValue = Nanboku_Line[Math.floor(Math.random() * Nanboku_Line.length)];
+                        break;
+                    case 2:
+                        randomValue = Touhou_Line[Math.floor(Math.random() * Touhou_Line.length)];
+                        break;
                 }
+
+                var outputHtml = "ランダム値：" + randomValue;
+                $("#output").html(outputHtml);
             });
         });
     </script>
